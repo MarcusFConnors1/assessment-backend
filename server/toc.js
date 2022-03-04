@@ -21,7 +21,7 @@ const tictactoe = [
 
 app.put('/api/tictoc/:id', (req, res) => {
     for(i = 0; i < tictactoe.length; i++){
-        if(req.params.id === tictactoe){
+        if(req.params.id === tictactoe[i]){
             tictactoe.splice(i, 1)
         }
     }
