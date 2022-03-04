@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Back End Assessment</title>
+  </head>
+  <body class="container">
+    <button id="complimentButton">Get a Compliment</button>
+    <button id="fortune">Get a Fortune</button>
+
+  <form id="addForm">
+      <input 
+          type='text'
+          id="name"
+          placeholder="name"/>
+      <button id="addPerson">add person</button>
+  </form>
+  <form id="deleteForm">
+    <input
+        type="text"
+        id="dltname"
+        placeholder="delete person"/>
+    <button id="deletePerson">delete person</button>
+  </form>
+  <form>
+    <input
+        type="text"
+        id="ogname"
+        placeholder="person to change"/>
+    <input
+        type="text"
+        id="chgname"
+        placeholder="new name"/>
+    <button id="changePerson">change person</button>
+  </form>
+  <button id="getPeople">Get People</button>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.getElementById("complimentButton").onclick = function () {
+        axios.get("http://localhost:4000/api/compliment/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+      document.getElementById("fortune").onclick = function () {
+        axios.get("http://localhost:4000/api/fortune/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+      document.getElementById("getPeople").onclick = function () {
+        axios.get("http://localhost:4000/api/people/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
