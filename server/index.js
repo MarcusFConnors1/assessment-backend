@@ -8,7 +8,11 @@ app.use(cors());
 
 app.use(express.json()); // When we want to be able to accept JSON.
 
-app.use(express.static(path.join(__dirname, "../client/index.html")));
+// app.use(express.static(path.join(__dirname, "../client/index.html")));
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, '../client/index.html'));
+});
 
 const port = process.env.PORT || 4000;
 
