@@ -1,12 +1,16 @@
 const express = require("express");
 const cors = require("cors");
+const path = require('path');
 
 const app = express();
-
 
 app.use(cors());
 
 app.use(express.json()); // When we want to be able to accept JSON.
+
+app.use(express.static(path.join(__dirname, "../client/index.html")));
+
+const port = process.env.PORT || 4000;
 
 const people = [
   "kyel",
@@ -80,4 +84,4 @@ app.put('/api/people/:id', (req, res) => {
   }
 })
 
-app.listen(4000, () => console.log("Server running on 4000"));
+app.listen(port, () => console.log(`Server running on ${port}`));
